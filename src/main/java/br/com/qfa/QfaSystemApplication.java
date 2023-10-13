@@ -13,6 +13,7 @@ import br.com.qfa.repositories.CidadeRespository;
 import br.com.qfa.repositories.ClienteRespository;
 import br.com.qfa.repositories.EnderecoRespository;
 import br.com.qfa.repositories.EstadoRespository;
+import br.com.qfa.repositories.ItemPedidoRespository;
 import br.com.qfa.repositories.PagamentoRespository;
 import br.com.qfa.repositories.PedidoRespository;
 import br.com.qfa.repositories.ProdutoRespository;
@@ -21,6 +22,7 @@ import br.com.qfa.resources.domain.Cidade;
 import br.com.qfa.resources.domain.Cliente;
 import br.com.qfa.resources.domain.Endereco;
 import br.com.qfa.resources.domain.Estado;
+import br.com.qfa.resources.domain.ItemPedido;
 import br.com.qfa.resources.domain.Pagamento;
 import br.com.qfa.resources.domain.PagamentoComBoleto;
 import br.com.qfa.resources.domain.PagamentoComCartao;
@@ -55,6 +57,9 @@ public class QfaSystemApplication implements CommandLineRunner{
 	
 	@Autowired
 	PagamentoRespository pagamentoRespository;
+	
+	@Autowired
+	ItemPedidoRespository itemPedidoRespository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(QfaSystemApplication.class, args);
@@ -123,6 +128,19 @@ public class QfaSystemApplication implements CommandLineRunner{
 		
 		pedidoRespository.saveAll(Arrays.asList(ped1, ped2));
 		pagamentoRespository.saveAll(Arrays.asList(pagto1, pagto2));
+		
+		ItemPedido ip1 = new ItemPedido(ped1, p1, 0.00, 1, 2000.00);
+		ItemPedido ip2 = new ItemPedido(ped1, p3, 0.00, 2, 80.00);
+		ItemPedido ip3 = new ItemPedido(ped2, p2, 100.00, 1, 800.00);
+		
+		ped1.getItens().addAll(Arrays.asList(ip1, ip2));
+		ped2.getItens().addAll(Arrays.asList(ip3));
+		
+		p1.getItens().addAll(Arrays.asList(ip1));
+		p2.getItens().addAll(Arrays.asList(ip3));
+		p3.getItens().addAll(Arrays.asList(ip2));
+		
+		itemPedidoRespository.saveAll(Arrays.asList(ip1,ip2,ip3));
 		
 	}
 	
