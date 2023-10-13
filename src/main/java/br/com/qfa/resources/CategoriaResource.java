@@ -1,6 +1,8 @@
 package br.com.qfa.resources;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.qfa.dto.CategoriaDTO;
 import br.com.qfa.resources.domain.Categoria;
 import br.com.qfa.services.CategoriaService;
 
@@ -49,6 +52,16 @@ public class CategoriaResource {
 		
 		service.delete(id);
 		return ResponseEntity.noContent().build();
+		
+	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public ResponseEntity<List<CategoriaDTO>> findAll() {
+		
+		List<Categoria> categorias = service.findAll();
+		List<CategoriaDTO> listDTO = categorias.stream()
+				.map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
 		
 	}
 }
