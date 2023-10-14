@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import br.com.qfa.dto.CategoriaDTO;
 import br.com.qfa.repositories.CategoriaRespository;
 import br.com.qfa.resources.domain.Categoria;
 import br.com.qfa.services.exceptions.DataIntegrityExceptions;
@@ -52,6 +53,10 @@ public class CategoriaService {
 	public Page<Categoria> findPage(Integer page, Integer linesPerPage) {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage);
 		return repo.findAll(pageRequest);
+	}
+	
+	public Categoria fromDTO(CategoriaDTO categoriaDTO) {
+		return new Categoria(categoriaDTO.getId(), categoriaDTO.getNome());
 	}
 
 }
