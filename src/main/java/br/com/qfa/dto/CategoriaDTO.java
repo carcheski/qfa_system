@@ -3,7 +3,7 @@ package br.com.qfa.dto;
 import java.io.Serializable;
 
 import br.com.qfa.resources.domain.Categoria;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
