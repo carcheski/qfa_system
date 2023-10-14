@@ -3,9 +3,9 @@ package br.com.qfa.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.qfa.resources.domain.Estado;
+import br.com.qfa.resources.domain.Endereco;
 
 @Repository
-public interface EstadoRespository extends JpaRepository<Estado, Integer> {
+public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
 }

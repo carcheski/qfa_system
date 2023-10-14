@@ -8,15 +8,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.com.qfa.repositories.CategoriaRespository;
-import br.com.qfa.repositories.CidadeRespository;
-import br.com.qfa.repositories.ClienteRespository;
-import br.com.qfa.repositories.EnderecoRespository;
-import br.com.qfa.repositories.EstadoRespository;
-import br.com.qfa.repositories.ItemPedidoRespository;
-import br.com.qfa.repositories.PagamentoRespository;
-import br.com.qfa.repositories.PedidoRespository;
-import br.com.qfa.repositories.ProdutoRespository;
+import br.com.qfa.repositories.CategoriaRepository;
+import br.com.qfa.repositories.CidadeRepository;
+import br.com.qfa.repositories.ClienteRepository;
+import br.com.qfa.repositories.EnderecoRepository;
+import br.com.qfa.repositories.EstadoRepository;
+import br.com.qfa.repositories.ItemPedidoRepository;
+import br.com.qfa.repositories.PagamentoRepository;
+import br.com.qfa.repositories.PedidoRepository;
+import br.com.qfa.repositories.ProdutoRepository;
 import br.com.qfa.resources.domain.Categoria;
 import br.com.qfa.resources.domain.Cidade;
 import br.com.qfa.resources.domain.Cliente;
@@ -35,31 +35,31 @@ import br.com.qfa.resources.domain.enums.TipoCliente;
 public class QfaSystemApplication implements CommandLineRunner{
 	
 	@Autowired
-	CategoriaRespository categoriaRespository;
+	CategoriaRepository categoriaRespository;
 	
 	@Autowired
-	ProdutoRespository produtoRespository;
+	ProdutoRepository produtoRespository;
 	
 	@Autowired
-	EstadoRespository estadoRespository;
+	EstadoRepository estadoRespository;
 	
 	@Autowired
-	CidadeRespository cidadeRespository;
+	CidadeRepository cidadeRespository;
 	
 	@Autowired
-	ClienteRespository clienteRespository;
+	ClienteRepository clienteRespository;
 	
 	@Autowired
-	EnderecoRespository enderecoRespository;
+	EnderecoRepository enderecoRespository;
 	
 	@Autowired
-	PedidoRespository pedidoRespository;
+	PedidoRepository pedidoRespository;
 	
 	@Autowired
-	PagamentoRespository pagamentoRespository;
+	PagamentoRepository pagamentoRespository;
 	
 	@Autowired
-	ItemPedidoRespository itemPedidoRespository;
+	ItemPedidoRepository itemPedidoRespository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(QfaSystemApplication.class, args);

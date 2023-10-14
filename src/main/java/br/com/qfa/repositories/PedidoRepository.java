@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.qfa.resources.domain.Pedido;
 
 @Repository
-public interface PedidoRespository extends JpaRepository<Pedido, Integer> {
+public interface PedidoRepository extends JpaRepository<Pedido, Integer> {
 
 }

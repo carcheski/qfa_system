@@ -10,7 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import br.com.qfa.dto.CategoriaDTO;
-import br.com.qfa.repositories.CategoriaRespository;
+import br.com.qfa.repositories.CategoriaRepository;
 import br.com.qfa.resources.domain.Categoria;
 import br.com.qfa.services.exceptions.DataIntegrityExceptions;
 import br.com.qfa.services.exceptions.ObjectNotFoundExceptions;
@@ -19,7 +19,7 @@ import br.com.qfa.services.exceptions.ObjectNotFoundExceptions;
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRespository repo;
+	private CategoriaRepository repo;
 
 	public Categoria find(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
